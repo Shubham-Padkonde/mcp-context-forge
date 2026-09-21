@@ -721,12 +721,17 @@ def test_uc4_overage_resolved_via_graph_allows_invoke(entra_overage_token, local
             "set ENTRA_GRAPH_CLIENT_ID + ENTRA_GRAPH_CLIENT_SECRET"
         )
     token, info = entra_overage_token
-    overage_group = info["groups"][0] if info["groups"] else os.environ["ENTRA_OVERAGE_MAPPED_GROUP"]
+    overage_group = info["groups"][0] if info["groups"] else os.getenv("ENTRA_OVERAGE_MAPPED_GROUP")
+    if not overage_group:
+        pytest.skip("UC4 token has no inline groups; set ENTRA_OVERAGE_MAPPED_GROUP to a group the overage user belongs to")
     with httpx.Client(headers=admin_headers(), timeout=30) as client:
         team_id = seed_team(client, "Entra Live Overage Team", "Live Entra overage graph_lookup e2e")
+        # Re-seed the SINGLE trust-root provider (delete-first by id): a second
+        # same-issuer row would make the gateway's unordered issuer->provider
+        # lookup nondeterministic for the Graph client-credentials call.
         seed_provider(
             client,
-            "entra-live-overage-root",
+            PROVIDER_ID,
             info["issuer"],
             info["audience"],
             token_url=f"https://login.microsoftonline.com/{info['tenant_id']}/oauth2/v2.0/token",
