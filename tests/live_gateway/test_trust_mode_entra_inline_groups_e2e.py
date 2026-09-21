@@ -13,8 +13,8 @@ Runbook (from the repo root):
     #    a) Export AZURE_CLIENT_ID + AZURE_CLIENT_SECRET + AZURE_TENANT_ID.
     #       The harness provisions a throwaway user and group, acquires a
     #       token through ROPC, and deletes both objects after the session.
-    #       Use case 4 self-provisions too: a user in 201 groups adds about
-    #       three minutes and narrates progress as [entra-overage] lines.
+    #       Use case 4 provisions a user in 201 groups. This adds three
+    #       minutes and prints [entra-overage] progress lines.
     #    b) Or set ENTRA_LIVE_TOKEN_FILE to a pre-acquired non-overage v2
     #       end-user token (see docs/plans/entra-v2-inline-groups-200-test.md
     #       sections 0-1) saved in an untracked file.
