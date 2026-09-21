@@ -13,9 +13,9 @@ Runbook (from the repo root):
     #    (non-overage user; see docs/plans/entra-v2-inline-groups-200-test.md §0-§1)
     #    and save it to an untracked file.
 
-    # 3. Run (JWT_SECRET_KEY must match the gateway's .env value):
+    # 3. Run (JWT_SECRET_KEY must match the running gateway container's value):
     JWT_TRUST_MODE=jwt-trust \
-    JWT_SECRET_KEY="$(grep -E '^JWT_SECRET_KEY=' .env | cut -d= -f2-)" \
+    JWT_SECRET_KEY="$(docker compose exec -T gateway printenv JWT_SECRET_KEY)" \
     ENTRA_LIVE_TOKEN_FILE=/path/to/entra-token-valid-v2.txt \
         uv run pytest tests/live_gateway/test_trust_mode_entra_inline_groups_e2e.py -v
 
