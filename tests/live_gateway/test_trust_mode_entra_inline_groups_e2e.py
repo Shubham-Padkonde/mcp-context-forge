@@ -190,12 +190,14 @@ def test_uc4_overage_resolved_via_graph_allows_invoke(entra_overage_token, local
     # ENTRA_OVERAGE_MAPPED_GROUP: when the overage token carries NO inline groups,
     # this env var must name a group the overage user belongs to; Graph resolves the
     # membership and the mapping turns it into the agent team + developer role.
-    overage_group = info["groups"][0] if info["groups"] else os.environ["ENTRA_OVERAGE_MAPPED_GROUP"]
+    overage_group = info["groups"][0] if info["groups"] else os.getenv("ENTRA_OVERAGE_MAPPED_GROUP")
+    if not overage_group:
+        pytest.skip("UC4 token has no inline groups; set ENTRA_OVERAGE_MAPPED_GROUP to a group the overage user belongs to")
     with httpx.Client(headers=admin_headers(), timeout=30) as client:
         team_id = seed_team(client, "Entra Live Overage Team", "Live Entra overage graph_lookup e2e")
         seed_provider(
             client,
-            "entra-live-overage-root",
+            PROVIDER_ID,
             info["issuer"],
             info["audience"],
             token_url=f"https://login.microsoftonline.com/{info['tenant_id']}/oauth2/v2.0/token",
