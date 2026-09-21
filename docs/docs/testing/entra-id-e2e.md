@@ -497,11 +497,9 @@ make testing-up-entra
 |----------|----------|-------------|
 | `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID` | Preferred automated mode | Self-provisioning mode. The harness creates a security group and a test user, acquires a v2 token through ROPC, and deletes both objects after the session. Requires admin-consented Graph permissions `User.ReadWrite.All`, `Group.ReadWrite.All`, `GroupMember.ReadWrite.All`. |
 | `ENTRA_LIVE_TOKEN_FILE` | Alternative to `AZURE_*` | Path to a non-overage, unexpired Entra v2 end-user token with inline `groups` claims |
-| `ENTRA_LIVE_TOKEN_DIR` | Alternative to the file variable | Directory that contains `entra-token-valid-v2.txt` |
-| `ENTRA_TENANT_ID`, `ENTRA_CLIENT_ID`, `ENTRA_TEST_USERNAME`, `ENTRA_TEST_PASSWORD` | Alternative to `AZURE_*` | Acquire the token through ROPC for a pre-existing account. The flow requires public client flows and a test account without interactive MFA. |
-| `ENTRA_OVERAGE_TOKEN_FILE` | Use case 4 only | Entra v2 token for a user in more than 200 groups, with the group-overage marker |
-| `ENTRA_GRAPH_CLIENT_ID`, `ENTRA_GRAPH_CLIENT_SECRET` | Use case 4 only | App Registration with the admin-consented `GroupMember.Read.All` permission. The tests use `ENTRA_CLIENT_ID` and `ENTRA_CLIENT_SECRET` when these variables are unset. |
-| `ENTRA_OVERAGE_MAPPED_GROUP` | Use case 4 only | Group GUID that Microsoft Graph resolves. Set this variable when the overage token carries no inline groups. |
+| `ENTRA_OVERAGE_TOKEN_FILE` | Use case 4 alternative | Pre-acquired token for a user in more than 200 groups, with the group-overage marker. With `AZURE_*` set, the harness self-provisions this instead: a throwaway user plus 201 groups, deleted after the session |
+| `ENTRA_GRAPH_CLIENT_ID`, `ENTRA_GRAPH_CLIENT_SECRET` | Use case 4 only | App Registration with the admin-consented `GroupMember.Read.All` permission. The tests use `AZURE_CLIENT_ID`/`AZURE_CLIENT_SECRET` or `ENTRA_CLIENT_ID`/`ENTRA_CLIENT_SECRET` when these variables are unset. |
+| `ENTRA_OVERAGE_MAPPED_GROUP` | Use case 4 operator mode only | Group GUID that Microsoft Graph resolves. Not needed in self-provisioning mode; needed when the overage token carries no inline groups and no provisioned GUID exists |
 
 
 ### Required Microsoft Graph permissions
@@ -527,6 +525,7 @@ Registration manifest by hand, or the token never carries the `groups` claim.
 TESTS_DNS_PASSTHROUGH_HOSTS="login.microsoftonline.com,graph.microsoft.com" \
 JWT_TRUST_MODE=jwt-trust \
 JWT_SECRET_KEY="$(docker compose exec -T gateway printenv JWT_SECRET_KEY)" \
+JWT_TRUST_OVERAGE_POLICY=graph_lookup \
     uv run pytest tests/live_gateway/test_trust_mode_entra_inline_groups_e2e.py -v
 ```
 
