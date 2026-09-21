@@ -22,7 +22,7 @@ USE CASE 4: The user's Entra group maps to the agent's ContextForge team.
 ```
 > I could not test Use Case 4 because I dont have any App Registration w Microsoft Graph ReadBasic.All and GroupMember.Read.All permissions.
 
-> **Automation status:** `tests/live_gateway/test_trust_mode_entra_inline_groups_e2e.py` reproduces use cases 1 through 4 as live-gateway tests against a real Entra tenant (PR #6931). Each test skips when its Entra prerequisites are absent. Use case 4 still requires an App Registration with admin-consented Microsoft Graph permissions.
+> **Automation status:** `tests/live_gateway/test_trust_mode_entra_inline_groups_e2e.py` reproduces use cases 1 through 4 as live-gateway tests against a real Entra tenant (PR #6931). With `AZURE_CLIENT_ID`/`AZURE_CLIENT_SECRET`/`AZURE_TENANT_ID` exported, the harness provisions every identity it needs — including, for use case 4, a user in 201 groups — and deletes them after the session. Each test skips when its Entra prerequisites are absent.
 
 ## Observed Result
 

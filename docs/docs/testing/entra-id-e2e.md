@@ -474,9 +474,11 @@ A second Entra test suite covers external-IdP trust mode
 `tests/live_gateway/test_trust_mode_entra_inline_groups_e2e.py` reproduces
 the four inline-groups access cases from the manual record
 ([`docs/plans/entra-v2-inline-groups-200-test.md`](https://github.com/IBM/mcp-context-forge/blob/main/docs/plans/entra-v2-inline-groups-200-test.md)).
-The tests run against a real Entra tenant. They use real v2 tokens, the real
+The tests run against a real Entra tenant. They use real tokens, the real
 issuer and JWKS, and real Microsoft Graph for group-overage resolution. The
-tests do not mock any Entra component.
+tests do not mock any Entra component. With `AZURE_*` credentials exported,
+all four cases run without operator input in roughly three to four minutes;
+use case 4 provisions 201 throwaway groups.
 
 This suite is separate from the SSO role-sync suite above. It exercises token
 dispatch, group-to-team mapping, and A2A agent visibility and invocation
@@ -495,7 +497,7 @@ make testing-up-entra
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID` | Preferred automated mode | Self-provisioning mode. The harness creates a security group and a test user, acquires a v2 token through ROPC, and deletes both objects after the session. Requires admin-consented Graph permissions `User.ReadWrite.All`, `Group.ReadWrite.All`, `GroupMember.ReadWrite.All`. |
+| `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID` | Preferred automated mode | Self-provisioning mode. The harness creates the identities use cases 1-3 need (a user and one group) and, for use case 4, a user in 201 groups; it deletes every object after the session. Requires admin-consented Graph permissions `User.ReadWrite.All`, `Group.ReadWrite.All`, `GroupMember.ReadWrite.All`, `Application.ReadWrite.All`. |
 | `ENTRA_LIVE_TOKEN_FILE` | Alternative to `AZURE_*` | Path to a non-overage, unexpired Entra v2 end-user token with inline `groups` claims |
 | `ENTRA_OVERAGE_TOKEN_FILE` | Use case 4 alternative | Pre-acquired token for a user in more than 200 groups, with the group-overage marker. With `AZURE_*` set, the harness self-provisions this instead: a throwaway user plus 201 groups, deleted after the session |
 | `ENTRA_GRAPH_CLIENT_ID`, `ENTRA_GRAPH_CLIENT_SECRET` | Use case 4 only | App Registration with the admin-consented `GroupMember.Read.All` permission. The tests use `AZURE_CLIENT_ID`/`AZURE_CLIENT_SECRET` or `ENTRA_CLIENT_ID`/`ENTRA_CLIENT_SECRET` when these variables are unset. |
@@ -519,6 +521,7 @@ or it is covered by `GroupMember.ReadWrite.All`.
 Without `Application.ReadWrite.All`, the harness cannot set
 `groupMembershipClaims` itself. Set it to `"SecurityGroup"` in the App
 Registration manifest by hand, or the token never carries the `groups` claim.
+
 ### Run the tests
 
 ```bash
