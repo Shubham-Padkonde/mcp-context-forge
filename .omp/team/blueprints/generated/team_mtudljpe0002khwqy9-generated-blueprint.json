@@ -1,0 +1,96 @@
+{
+  "blueprintId": "team_mtudljpe0002khwqy9-generated-blueprint",
+  "runId": "team_mtudljpe0002khwqy9",
+  "task": "Mission: verify code references and repo conventions for planning epics #5884/#5885 (canonical user_id + JWT-trust mode). You are one of four read-only scouts in rescue run 2 (run 1 hit provider errors). Repo root: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot. Shared rules: (1) READ-ONLY toward the repo. Write ONLY your own report file under .omo/captain/. (2) Read GitHub issues with the read tool, path 'issue://NNNN'; if that fails run: gh issue view NNNN --json body -q .body. (3) ANTI-HALLUCINATION: read the issue body FIRST; verify ONLY citations that appear in that body; QUOTE each citation verbatim in your report before its verdict; never verify from memory. (4) The issues were edited TODAY: todo/story numbers were replaced by issue references; trust what you read, not cached copies. (5) These issues describe a NEW feature that is NOT implemented. Do NOT report 'missing' for the feature itself (trust mode, external_group_mappings, jwt_trust_overage_policy, get_user_id) — that is expected. Verify only that the EXISTING code cited as precedent/seam is where the issue says it is. (6) Budget: stay within your stated tool-call cap; use the grep tool for symbols; read only cited ranges plus context. Verdicts: OK / DRIFTED (give current file:line) / WRONG (explain) / MISSING. (7) Keep prose terse; short sentences, active voice. Final message: at most 30 lines.",
+  "playbookId": "generated-blueprint",
+  "playbookTitle": "Dynamic team blueprint",
+  "source": "generated",
+  "status": "draft",
+  "createdAt": 1788975126370,
+  "roles": [
+    {
+      "roleId": "scout-epic1-v2",
+      "title": "Epic 1 reference verifier v2",
+      "description": "Verify file:line references in stories #5886-#5895 against the worktree; enumerate writer/principal construction sites; record alembic head.",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [
+        "zai/glm-4.5-flash",
+        "opencode-zen/deepseek-v4-flash"
+      ]
+    },
+    {
+      "roleId": "scout-epic2a-v2",
+      "title": "Epic 2A reference verifier v2",
+      "description": "Verify file:line references in stories #5896-#5901 (auth.py funnel, verify_credentials, config) against the worktree.",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [
+        "zai/glm-4.5-flash",
+        "opencode-zen/deepseek-v4-flash"
+      ]
+    },
+    {
+      "roleId": "scout-epic2b-v2",
+      "title": "Epic 2B reference verifier v2",
+      "description": "Verify file:line references in stories #5902-#5906, #5976, #5977, #6272 (services, routers, a2a, db) against the worktree.",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [
+        "opencode-zen/deepseek-v4-flash",
+        "zai/glm-4.5-flash"
+      ]
+    },
+    {
+      "roleId": "scout-conventions-v2",
+      "title": "Conventions and tooling scout v2",
+      "description": "Map test, migration, doctest, live-gateway, Makefile, and docs conventions; verify validation-gate commands exist.",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [
+        "opencode-zen/deepseek-v4-flash"
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "id": "collect",
+      "type": "parallel",
+      "roles": [
+        "scout-epic1-v2",
+        "scout-epic2a-v2",
+        "scout-epic2b-v2",
+        "scout-conventions-v2"
+      ]
+    }
+  ],
+  "policy": {
+    "rationale": "A task-specific collaboration blueprint generated for the lead captain",
+    "strategy": "The lead captain generated this collaboration plan; the extension handles dispatch, communication, observation, and recording.",
+    "evidencePolicy": "Workers should separate cited evidence, inference, confidence, and missing information.",
+    "modelPolicy": "Use configured models that are objectively available; keep soft health observations visible.",
+    "synthesisPolicy": "The lead uses worker outputs as inputs and keeps final judgment outside the extension.",
+    "progressMilestones": [
+      "collect: parallel"
+    ],
+    "stopCriteria": "All planned rounds have returned a status and the run log is persisted."
+  },
+  "outputContract": "findings",
+  "captainRationale": "A task-specific collaboration blueprint generated for the lead captain"
+}

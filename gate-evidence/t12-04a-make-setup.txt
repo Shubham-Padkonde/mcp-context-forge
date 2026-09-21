@@ -1,0 +1,12 @@
+🔧 ContextForge first-time setup...
+
+    This target auto-patches secrets into .env.
+    If you prefer to review secrets before use, run instead:
+      make init-secrets    # writes to .env.secrets — review, then copy into .env
+
+📋  Copying .env.example → .env
+✅  Patched .env: generated strong values for BASIC_AUTH_PASSWORD, PLATFORM_ADMIN_PASSWORD, DEFAULT_USER_PASSWORD
+
+✅  Setup complete.
+    For local dev:    make install-dev && make dev
+    For Docker stack: make compose-up

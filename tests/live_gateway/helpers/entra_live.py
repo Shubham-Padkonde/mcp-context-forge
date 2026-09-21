@@ -21,11 +21,13 @@ match wins:
    ``ENTRA_CLIENT_ID``, ``ENTRA_TEST_USERNAME`` and
    ``ENTRA_TEST_PASSWORD`` are set.
 
-The self-provisioning mode needs these Microsoft Graph application
-permissions, admin-consented: ``User.ReadWrite.All``,
-``Group.ReadWrite.All`` and ``GroupMember.ReadWrite.All``. The
-application object must allow the manifest patch, or it must already
-carry ``groupMembershipClaims``.
+The self-provisioning mode needs these admin-consented Microsoft
+Graph application permissions: ``User.ReadWrite.All``,
+``Group.ReadWrite.All``, ``GroupMember.ReadWrite.All`` and
+``Application.ReadWrite.All``. The last permission lets the helper set
+``groupMembershipClaims``. The Graph API expects the string value
+``"SecurityGroup"``, not an array. Without the permission, set the
+manifest value by hand.
 
 The gateway performs the real verification against Entra JWKS; the
 payload decode here is for extracting seeding values only.
@@ -176,7 +178,7 @@ def _ensure_group_claims(headers: dict[str, str], client_id: str) -> None:
     patch = httpx.patch(
         f"https://graph.microsoft.com/v1.0/applications/{matches[0]['id']}",
         headers=headers,
-        json={"groupMembershipClaims": ["SecurityGroup"]},
+            json={"groupMembershipClaims": "SecurityGroup"},
         timeout=30,
     )
     if patch.status_code >= 300:

@@ -1,0 +1,43 @@
+Gate evidence (every command exit 0):
+
+- cd mcpgateway && uv run alembic heads: exactly one head, bf2998718ea1 (the #5892 revision; mcpgateway/alembic/versions/bf2998718ea1_add_user_id_to_email_users.py exists)
+- make test: 23230 passed, 879 skipped, 2 xfailed in 88.06s
+- make doctest: 1228 passed, 57 skipped in 5.62s
+- make ruff interrogate pylint: ruff all checks passed; interrogate clean; pylint 10.00/10
+- make coverage diff-cover: TOTAL 98%; diff coverage 99% (145 lines, 1 missing)
+
+Behavior-identity note (git diff main...HEAD --name-status -- tests/):
+
+Target: zero modified pre-existing test files. Actual: 3 files added, 18 files
+modified. 13 of the 18 modified files are additive-only: no pre-existing line
+was removed or changed. The 5 files with changed pre-existing lines are listed
+with one justification each.
+
+ADDED:
+- tests/unit/mcpgateway/db/test_email_users_user_id_migration.py: #5892 migration and backfill tests for the email_users.user_id column.
+- tests/unit/mcpgateway/test_writer_resolver_audit.py: writer/resolver audit tests for canonical user_id keying.
+- tests/unit/mcpgateway/test_identity_separation.py: #5894 diverged-identity separation suite and token-format matrix.
+
+MODIFIED, additive-only (no pre-existing line removed or changed):
+- tests/helpers/auth.py
+- tests/unit/mcpgateway/cache/test_auth_cache_l1_l2.py
+- tests/unit/mcpgateway/cache/test_auth_cache_user.py
+- tests/unit/mcpgateway/middleware/test_rbac.py
+- tests/unit/mcpgateway/middleware/test_token_scoping.py
+- tests/unit/mcpgateway/services/test_audit_trail_service.py
+- tests/unit/mcpgateway/services/test_email_auth_service.py
+- tests/unit/mcpgateway/services/test_personal_team_service.py
+- tests/unit/mcpgateway/services/test_role_service.py
+- tests/unit/mcpgateway/services/test_sso_service.py
+- tests/unit/mcpgateway/services/test_sso_user_normalization.py
+- tests/unit/mcpgateway/test_auth.py
+- tests/unit/mcpgateway/utils/test_verify_credentials.py
+
+MODIFIED, pre-existing lines changed (one justification each):
+- tests/unit/mcpgateway/transports/test_streamablehttp_transport.py: 4 dict-equality assertions gained the user_id key because the normalized user context now carries user_id (#5887); the assertions are stricter, not weaker.
+- tests/unit/mcpgateway/services/test_team_management_service.py: 4 with-patch blocks widened to mock resolve_canonical_user_id (#5893 writer re-keying); no assertion changed.
+- tests/unit/mcpgateway/services/test_team_management_service_coverage.py: 5 with/pytest.raises blocks widened with the same resolver mock (#5893); no assertion changed.
+- tests/unit/mcpgateway/test_auth_context.py: 1 import line extended to import get_user_id (#5886); the TestGetUserId class is new.
+- tests/unit/mcpgateway/services/test_team_invitation_service.py: 1 datetime import line extended; the TestAcceptInvitationCanonicalKeying class is new.
+
+Risk to existing users: none. Documentation and evidence only.

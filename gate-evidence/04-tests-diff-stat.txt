@@ -1,0 +1,22 @@
+ tests/helpers/auth.py                              |   6 +
+ .../unit/mcpgateway/cache/test_auth_cache_l1_l2.py |  44 +++
+ .../unit/mcpgateway/cache/test_auth_cache_user.py  |  52 ++++
+ .../db/test_email_users_user_id_migration.py       | 231 ++++++++++++++
+ tests/unit/mcpgateway/middleware/test_rbac.py      |  59 ++++
+ .../mcpgateway/middleware/test_token_scoping.py    |  61 ++++
+ .../services/test_audit_trail_service.py           |  62 ++++
+ .../mcpgateway/services/test_email_auth_service.py |  55 ++++
+ .../services/test_personal_team_service.py         |  24 ++
+ .../unit/mcpgateway/services/test_role_service.py  |  43 +++
+ tests/unit/mcpgateway/services/test_sso_service.py | 189 ++++++++++++
+ .../services/test_sso_user_normalization.py        |  86 ++++++
+ .../services/test_team_invitation_service.py       |  52 +++-
+ .../services/test_team_management_service.py       |  78 ++++-
+ .../test_team_management_service_coverage.py       |  18 +-
+ tests/unit/mcpgateway/test_auth.py                 | 111 +++++++
+ tests/unit/mcpgateway/test_auth_context.py         |  39 ++-
+ tests/unit/mcpgateway/test_identity_separation.py  | 339 +++++++++++++++++++++
+ .../unit/mcpgateway/test_writer_resolver_audit.py  |  71 +++++
+ .../transports/test_streamablehttp_transport.py    |  28 +-
+ .../mcpgateway/utils/test_verify_credentials.py    |  69 +++++
+ 21 files changed, 1707 insertions(+), 10 deletions(-)

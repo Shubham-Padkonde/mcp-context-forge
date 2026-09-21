@@ -1,0 +1,11 @@
+{
+  "roles": {
+    "scout-epic2a-v2": {
+      "communicationAt": 1788975138804,
+      "silenceAlerted": true,
+      "pendingAckAlerted": false,
+      "cancelAlerted": false,
+      "rearmAt": 1788975281365
+    }
+  }
+}

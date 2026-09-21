@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot
+configfile: pyproject.toml
+plugins: Faker-40.37.0, instafail-0.5.0, cov-7.1.0, xdist-3.8.0, timeout-2.4.0, asyncio-1.4.0, metadata-3.1.1, locust-2.46.4, html-4.2.0, trio-0.8.0, anyio-4.14.2, integration-mark-0.2.0, schemathesis-4.25.2, rerunfailures-16.6, httpx-0.36.2, examples-0.0.18, base-url-2.1.0, env-1.7.0, hypothesis-6.165.10
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 7 items
+
+tests/live_gateway/test_trust_mode_external_ingress_e2e.py .....         [ 71%]
+tests/live_gateway/test_trust_mode_entra_barrier.py ..                   [100%]
+
+============================== 7 passed in 6.21s ===============================

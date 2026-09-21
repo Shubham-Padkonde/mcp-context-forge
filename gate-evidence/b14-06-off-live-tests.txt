@@ -1,0 +1,108 @@
+🔌 Running MCP protocol E2E tests against http://localhost:8080...
+   Env: MCP_CLI_BASE_URL (gateway URL)  JWT_SECRET_KEY  PLATFORM_ADMIN_EMAIL
+   MCP Apps: set MCPGATEWAY_MCP_APPS_ENABLED=true for both testing-up and this target
+   Timeout: 5.0s per client operation (override MCP_E2E_CLIENT_TIMEOUT)
+2026-09-10T05:57:22 - mcpgateway.config - INFO - Using SQLite database. Consider PostgreSQL for production.
+2026-09-10T05:57:22 - mcpgateway.config - WARNING - 🔓 SECURITY WARNING: Default BASIC_AUTH_PASSWORD detected! Please change it if you enable API_ALLOW_BASIC_AUTH.
+2026-09-10T05:57:22 - mcpgateway.config - WARNING - 🔐 SECURITY WARNING: Admin password has low complexity. Should contain at least 3 of: uppercase, lowercase, digits, special characters
+2026-09-10T05:57:22 - mcpgateway.config - INFO - SIEM URL allowlist is empty — all outbound destination URLs are permitted
+2026-09-10T05:57:22 - mcpgateway.config - INFO - MCP_REQUIRE_AUTH not set; defaulting to True to match AUTH_REQUIRED=True.
+2026-09-10T05:57:22 - mcpgateway.db - INFO - Configuring SQLite with pool_size=50, max_overflow=10. Note: With gunicorn multi-worker deployment, each worker gets its own pool. 
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot
+configfile: pyproject.toml
+plugins: Faker-40.37.0, instafail-0.5.0, cov-7.1.0, xdist-3.8.0, timeout-2.4.0, asyncio-1.4.0, metadata-3.1.1, locust-2.46.4, html-4.2.0, trio-0.8.0, anyio-4.14.2, integration-mark-0.2.0, schemathesis-4.25.2, rerunfailures-16.6, httpx-0.36.2, examples-0.0.18, base-url-2.1.0, env-1.7.0, hypothesis-6.165.10
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 24 items
+
+tests/live_gateway/mcp/test_mcp_protocol_e2e.py ssssssssssssssssssssssss
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:172: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:177: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:185: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:194: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:209: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:214: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:222: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:229: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:239: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:243: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:277: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:281: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:314: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:322: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:331: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:339: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:344: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:360: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:388: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:405: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:417: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:443: MCP Apps E2E requires a gateway started with MCPGATEWAY_MCP_APPS_ENABLED=true
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:467: MCP Apps E2E requires a gateway started with MCPGATEWAY_MCP_APPS_ENABLED=true
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:580: Rust MCP public transport not active at http://127.0.0.1:8080
+============================= 24 skipped in 0.16s ==============================
+✅ MCP protocol E2E tests passed!
+🔐 Running RBAC + multi-transport MCP protocol tests against http://localhost:8080...
+   Requires: docker-compose stack with SSE gateway registered
+2026-09-10T05:57:24 - mcpgateway.config - INFO - Using SQLite database. Consider PostgreSQL for production.
+2026-09-10T05:57:24 - mcpgateway.config - WARNING - 🔓 SECURITY WARNING: Default BASIC_AUTH_PASSWORD detected! Please change it if you enable API_ALLOW_BASIC_AUTH.
+2026-09-10T05:57:24 - mcpgateway.config - WARNING - 🔐 SECURITY WARNING: Admin password has low complexity. Should contain at least 3 of: uppercase, lowercase, digits, special characters
+2026-09-10T05:57:24 - mcpgateway.config - INFO - SIEM URL allowlist is empty — all outbound destination URLs are permitted
+2026-09-10T05:57:24 - mcpgateway.config - INFO - MCP_REQUIRE_AUTH not set; defaulting to True to match AUTH_REQUIRED=True.
+2026-09-10T05:57:24 - mcpgateway.db - INFO - Configuring SQLite with pool_size=50, max_overflow=10. Note: With gunicorn multi-worker deployment, each worker gets its own pool. 
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot
+configfile: pyproject.toml
+plugins: playwright-0.9.0, Faker-40.37.0, instafail-0.5.0, cov-7.1.0, xdist-3.8.0, timeout-2.4.0, asyncio-1.4.0, metadata-3.1.1, locust-2.46.4, html-4.2.0, trio-0.8.0, anyio-4.14.2, integration-mark-0.2.0, schemathesis-4.25.2, rerunfailures-16.6, httpx-0.36.2, examples-0.0.18, base-url-2.1.0, env-1.7.0, hypothesis-6.165.10
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 40 items
+
+tests/live_gateway/mcp/test_mcp_rbac_transport.py ssssssssssssssssssssssssssssssssssssssss
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:515: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:536: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:549: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:562: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:576: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:597: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:604: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:613: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:621: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:629: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:642: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:646: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:650: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:655: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:674: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:681: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:687: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:693: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:702: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:710: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:737: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:742: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:747: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:763: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:769: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:780: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:792: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:796: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:807: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:816: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:824: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:832: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:847: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:853: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:859: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:872: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:898: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:917: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:931: ContextForge not reachable at http://127.0.0.1:8080
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_rbac_transport.py:944: ContextForge not reachable at http://127.0.0.1:8080
+============================= 40 skipped in 0.18s ==============================
+✅ MCP RBAC transport tests passed!

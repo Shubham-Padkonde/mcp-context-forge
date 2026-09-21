@@ -1,0 +1,531 @@
+🔌 Running MCP protocol E2E tests against http://localhost:8080...
+   Env: MCP_CLI_BASE_URL (gateway URL)  JWT_SECRET_KEY  PLATFORM_ADMIN_EMAIL
+   MCP Apps: set MCPGATEWAY_MCP_APPS_ENABLED=true for both testing-up and this target
+   Timeout: 5.0s per client operation (override MCP_E2E_CLIENT_TIMEOUT)
+2026-09-12T22:30:38 - mcpgateway.config - INFO - Using SQLite database. Consider PostgreSQL for production.
+2026-09-12T22:30:38 - mcpgateway.config - INFO - SIEM URL allowlist is empty — all outbound destination URLs are permitted
+2026-09-12T22:30:38 - mcpgateway.config - INFO - MCP_REQUIRE_AUTH not set; defaulting to True to match AUTH_REQUIRED=True.
+2026-09-12T22:30:38 - mcpgateway.db - INFO - Configuring SQLite with pool_size=50, max_overflow=10. Note: With gunicorn multi-worker deployment, each worker gets its own pool. 
+2026-09-12T22:30:39 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+2026-09-12T22:30:39 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+2026-09-12T22:30:40 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot
+configfile: pyproject.toml
+plugins: Faker-40.37.0, instafail-0.5.0, cov-7.1.0, xdist-3.8.0, timeout-2.4.0, asyncio-1.4.0, metadata-3.1.1, locust-2.46.4, html-4.2.0, trio-0.8.0, anyio-4.14.2, integration-mark-0.2.0, schemathesis-4.25.2, rerunfailures-16.6, httpx-0.36.2, examples-0.0.18, base-url-2.1.0, env-1.7.0, hypothesis-6.165.10
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 24 items
+
+tests/live_gateway/mcp/test_mcp_protocol_e2e.py 2026-09-12T22:30:40 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:40 - mcp.client.streamable_http - INFO - Received session ID: a66c52fdb687449b9b3774f3dd1c7874
+2026-09-12T22:30:40 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:40 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:40 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:41 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+
+  JWT token generated for admin@example.com (expires in 60m)
+    -> ping OK
+.2026-09-12T22:30:41 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:42 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:42 - mcp.client.streamable_http - INFO - Received session ID: b9ea1f538daa4bd48d816e75bc875b70
+2026-09-12T22:30:42 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+    -> Protocol: 2025-11-25, Server: mcp-streamable-http v1.29.1
+.2026-09-12T22:30:42 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:42 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:42 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:43 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:43 - mcp.client.streamable_http - INFO - Received session ID: 2342288b887b4f8ea7e2631ad20fccfc
+2026-09-12T22:30:43 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+    -> Capabilities: ['tools', 'resources', 'prompts', 'logging', 'completions']
+.2026-09-12T22:30:43 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:43 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:43 - mcp.client.streamable_http - INFO - Received session ID: efa6dad4b388472d823eb51974c04607
+2026-09-12T22:30:43 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:43 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:44 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:44 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:44 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:45 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> tools=9 resources=0 prompts=0
+.2026-09-12T22:30:45 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:46 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:46 - mcp.client.streamable_http - INFO - Received session ID: 823ddb2eeee34dc0b97f02eb64c2582f
+2026-09-12T22:30:46 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:46 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:46 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:46 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> 9 tools: ['fast-time-verify-protocol', 'fast-time-schema-success', 'fast-time-schema-error', 'fast-time-get-system-time', 'fast-time-get-stats', 'fast-time-flaky', 'fast-time-echo', 'fast-time-convert-time', 'a2a-a2a-echo-agent']
+.2026-09-12T22:30:46 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:47 - mcp.client.streamable_http - INFO - Received session ID: 6010d474068b46a69c6ffd26b31f173a
+2026-09-12T22:30:47 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> all 9 tools have name/description/inputSchema
+.2026-09-12T22:30:47 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:47 - mcp.client.streamable_http - INFO - Received session ID: eec2eddbc45c4ef987b42901ba81186a
+2026-09-12T22:30:47 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:47 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> 9 gateway-prefixed tools present
+.2026-09-12T22:30:48 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:48 - mcp.client.streamable_http - INFO - Received session ID: a246426744d64497a29ee6292c007c71
+2026-09-12T22:30:48 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:48 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> all tool inputSchemas validated as type=object
+.2026-09-12T22:30:48 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:49 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:49 - mcp.client.streamable_http - INFO - Received session ID: 79a626593c2c470981e8740eb7481c0e
+2026-09-12T22:30:49 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:49 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:49 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:49 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> 0 resources
+.2026-09-12T22:30:49 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Received session ID: be076fece7d446938eed628c0597b0fa
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+s2026-09-12T22:30:50 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Received session ID: 5ebacd15aba146e893eacb8b4a0e0414
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> 0 prompts
+.2026-09-12T22:30:50 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Received session ID: ccedafeeffff4606a42cdaa664e9fab7
+2026-09-12T22:30:50 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+s2026-09-12T22:30:51 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:51 - mcp.client.streamable_http - INFO - Received session ID: 8c1c16737baa4a14b60c25a745ac3cbb
+2026-09-12T22:30:51 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:51 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> get-system-time(UTC) = 2026-09-12T21:30:52Z
+.2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Received session ID: d1bf50c70e33492fa3c2ca11185e4f7b
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> convert-time(UTC->NY) = 2025-01-15T07:00:00-05:00
+.2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Received session ID: c47392cbee4b41cebfff28bbaa27355b
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> echo('hello-from-mcp-protocol-e2e') = hello-from-mcp-protocol-e2e
+.2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Received session ID: 5bd7bbb8925b448487d3ff2f1963b1eb
+2026-09-12T22:30:52 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:52 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:53 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:53 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> get-stats = {
+  "server": "fast-time-server",
+  "version": "0.1.0",
+  "requests_handled": 3
+}
+.2026-09-12T22:30:53 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:53 - mcp.client.streamable_http - INFO - Received session ID: 767c3e16fd694a898e1af174e908d0d5
+2026-09-12T22:30:53 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:53 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:53 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:53 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> schema_error isError=true preserved: You cannot send more than 200 points
+.2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - mcp.client.streamable_http - INFO - Received session ID: 91d1c2fad14d4832acecabfa9068971d
+2026-09-12T22:30:54 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> schema_success validated: {'message': 'ok', 'recognitionId': 'rec-123'}
+.2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - mcp.client.streamable_http - INFO - Received session ID: 6fba3029fbf64a3d9fdd876b1f1a8ef9
+2026-09-12T22:30:54 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> McpError (expected): Tool not found: nonexistent-tool-xyz
+.2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> unauthenticated /mcp/ -> status=401
+.2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:30:54 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> invalid method -> status=200
+.sss
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:259: No resources registered on gateway — nothing to read
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:289: No prompts registered on gateway — nothing to render
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:443: MCP Apps E2E requires a gateway started with MCPGATEWAY_MCP_APPS_ENABLED=true
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:467: MCP Apps E2E requires a gateway started with MCPGATEWAY_MCP_APPS_ENABLED=true
+SKIPPED [1] tests/live_gateway/mcp/test_mcp_protocol_e2e.py:580: Rust MCP public transport not active at http://127.0.0.1:8080
+======================== 19 passed, 5 skipped in 16.38s ========================
+✅ MCP protocol E2E tests passed!
+🔐 Running RBAC + multi-transport MCP protocol tests against http://localhost:8080...
+   Requires: docker-compose stack with SSE gateway registered
+2026-09-12T22:30:58 - mcpgateway.config - INFO - Using SQLite database. Consider PostgreSQL for production.
+2026-09-12T22:30:58 - mcpgateway.config - INFO - SIEM URL allowlist is empty — all outbound destination URLs are permitted
+2026-09-12T22:30:58 - mcpgateway.config - INFO - MCP_REQUIRE_AUTH not set; defaulting to True to match AUTH_REQUIRED=True.
+2026-09-12T22:30:58 - mcpgateway.db - INFO - Configuring SQLite with pool_size=50, max_overflow=10. Note: With gunicorn multi-worker deployment, each worker gets its own pool. 
+2026-09-12T22:30:58 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+2026-09-12T22:30:58 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+2026-09-12T22:30:58 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/health "HTTP/1.1 200 OK"
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot
+configfile: pyproject.toml
+plugins: playwright-0.9.0, Faker-40.37.0, instafail-0.5.0, cov-7.1.0, xdist-3.8.0, timeout-2.4.0, asyncio-1.4.0, metadata-3.1.1, locust-2.46.4, html-4.2.0, trio-0.8.0, anyio-4.14.2, integration-mark-0.2.0, schemathesis-4.25.2, rerunfailures-16.6, httpx-0.36.2, examples-0.0.18, base-url-2.1.0, env-1.7.0, hypothesis-6.165.10
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 40 items
+
+tests/live_gateway/mcp/test_mcp_rbac_transport.py 2026-09-12T22:30:58 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created RBAC team: mcp-rbac-team-aa1ab62f (id=cd8fd4eff89c465f9048e9b86a39e0a2)
+2026-09-12T22:30:59 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Registered Streamable HTTP gateway: mcp-rbac-streamable-http-gw (id=18c0ac995bfa47de8d6b87b2c5358512)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Streamable HTTP gateway synced: 8 tools
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created public server: mcp-rbac-public-streamable-http-4ee41968 (id=79fa0734e43e4e9d951c18f1f521abcb)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created team server: mcp-rbac-team-streamable-http-4ee41968 (id=67c03357126844b0a2fca5d6dff6dc71)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created private server: mcp-rbac-private-streamable-http-4ee41968 (id=285312864429431aab1db221d06a06a3)
+    -> Admin sees public + team servers and own private via owner matching
+.2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-admin-19ffb53b@test.com (is_admin=True)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-admin-19ffb53b@test.com (id=47f01b3f-c775-4587-add0-b09579ea29d3)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-tadmin-19ffb53b@test.com (is_admin=False)
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - User mcp-rbac-tadmin-19ffb53b@test.com joined team cd8fd4eff89c465f9048e9b86a39e0a2
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Assigned team_admin role to mcp-rbac-tadmin-19ffb53b@test.com
+2026-09-12T22:31:00 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-tadmin-19ffb53b@test.com (id=4373c09d-e32a-4f12-93a3-3f5dcb4455bf)
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-dev-19ffb53b@test.com (is_admin=False)
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - User mcp-rbac-dev-19ffb53b@test.com joined team cd8fd4eff89c465f9048e9b86a39e0a2
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Assigned developer role to mcp-rbac-dev-19ffb53b@test.com
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-dev-19ffb53b@test.com (id=bda1e24d-a949-437a-aae9-a85f27988189)
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-viewer-19ffb53b@test.com (is_admin=False)
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - User mcp-rbac-viewer-19ffb53b@test.com joined team cd8fd4eff89c465f9048e9b86a39e0a2
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Assigned viewer role to mcp-rbac-viewer-19ffb53b@test.com
+2026-09-12T22:31:01 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-viewer-19ffb53b@test.com (id=88d931a8-4059-4693-8e8e-9808859c4b01)
+    -> Developer sees public + team servers
+.    -> Viewer sees public + team servers
+.2026-09-12T22:31:02 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-outsider-649019f6@test.com (is_admin=False)
+2026-09-12T22:31:02 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-outsider-649019f6@test.com (id=83ad89e0-4f17-47cd-b0dd-8b6c290bf3b4)
+    -> Outsider sees only public server
+.    -> Team admin sees public + team servers
+.2026-09-12T22:31:02 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:02 - mcp.client.streamable_http - INFO - Received session ID: a1b282e852434c589b9c9043b413a461
+2026-09-12T22:31:02 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:02 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:02 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin sees 9 tools: ['mcp-rbac-streamable-http-gw-verify-protocol', 'mcp-rbac-streamable-http-gw-schema-success', 'mcp-rbac-streamable-http-gw-schema-error', 'mcp-rbac-streamable-http-gw-get-system-time', 'mcp-rbac-streamable-http-gw-get-stats', 'mcp-rbac-streamable-http-gw-flaky', 'mcp-rbac-streamable-http-gw-echo', 'mcp-rbac-streamable-http-gw-convert-time', 'a2a-a2a-echo-agent']...
+.2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Received session ID: 7f34e2f1da7d4dc4b2af2aeb14829e1a
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Developer sees 9 tools
+.2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Received session ID: 11abd8b616fd4e0b837b7dd72dc97ded
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Viewer sees 9 tools
+.2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Received session ID: 0780fd5a0f314c16a0135e61b2ff12f3
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Outsider sees 9 public tools
+.2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Received session ID: 9178a0b154be4f1d8e189a1515a0fb21
+2026-09-12T22:31:03 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:03 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Team admin sees 9 tools
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: 46c617d122ee444c9010f262703a7531
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin sees 0 resources
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: a9eb5a60820848b196f4fe5def621bbd
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin sees 0 prompts
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: 303a08f1af7747b79c321ded2c82e35b
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: b7be1bd0fae74c3ba2cd1ce91c94d9f6
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Developer sees 0 resources, 0 prompts
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: c3bd555199554e9fb158be34b2f3748b
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: 1950881faa434011a68a3f4ab810fc9c
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Outsider sees 0 resources, 0 prompts
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: 59de4904b0744641a96900f7e6ec6e8c
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin call mcp-rbac-streamable-http-gw-get-system-time = 2026-09-12T21:31:04Z
+.2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Received session ID: c4394ee2f54547ff971a17e7607d3837
+2026-09-12T22:31:04 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:04 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Developer call succeeded: 2026-09-12T21:31:05Z
+.2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Received session ID: fffe0d4f7ce04d09bdedd24f2e1d811d
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Team admin call succeeded: 2026-09-12T21:31:05Z
+.2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Received session ID: 7c5f1af4f46c4ab48dbaec914bd80ff9
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Outsider denied tools.execute (expected)
+.2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Received session ID: c8caa9ebcb744843a9881df0561ab399
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Outsider nonexistent tool: error (expected)
+.2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Received session ID: 6aa6374ea4a6494496a4cce7fbdd53ac
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Viewer call succeeded: 2026-09-12T21:31:05Z
+.2026-09-12T22:31:05 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-scoped-ro-7bb7878d@test.com (is_admin=True)
+2026-09-12T22:31:05 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-scoped-ro-7bb7878d@test.com (id=d93e07a2-029f-41f7-827b-a154d249395b)
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Received session ID: ddd4c316cc744e9d97fd1ddd6f448573
+2026-09-12T22:31:05 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:05 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> tools.read-only token initialized (servers.use auto-injected)
+.2026-09-12T22:31:06 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-scoped-rw-ee5f2795@test.com (is_admin=True)
+2026-09-12T22:31:06 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-scoped-rw-ee5f2795@test.com (id=b112585e-9c6c-46ad-90d7-bcd0f1640096)
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: ffb2889d67ba4432b0af9018d7e51bc5
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> tools.read+execute token initialized (servers.use auto-injected)
+.2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: 36be620671954b0f862d657951624161
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Unscoped admin token call = 2026-09-12T21:31:06Z
+.2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: eff9a0baa3da48ea926a216867b4330e
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> 9 total tools visible to admin (Streamable HTTP gateway id=18c0ac995bfa47de8d6b87b2c5358512)
+.2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: bf26f91d68bf4a1387003d7219a302e4
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: 3f27b9687d9245ba8b9b3c410ce02672
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Streamable HTTP mcp-rbac-streamable-http-gw-get-system-time = 2026-09-12T21:31:06Z
+.2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: 51c75224f39341d19dbb0c42da148e47
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Received session ID: 7e0237e81bea4bd8a9f03a81af3686a2
+2026-09-12T22:31:06 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:06 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Streamable HTTP mcp-rbac-streamable-http-gw-convert-time: OK
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Received session ID: 2b1c79bc39614377bf2cffc34882c983
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin sees 0 resources (incl. Streamable HTTP)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Received session ID: 1a3d8efb9970403390a262d457cf86e2
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> Admin sees 0 prompts (incl. Streamable HTTP)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/79fa0734e43e4e9d951c18f1f521abcb/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Received session ID: 1301574ec26c44df896d486a4fb8dfb6
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/79fa0734e43e4e9d951c18f1f521abcb/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/servers/79fa0734e43e4e9d951c18f1f521abcb/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/79fa0734e43e4e9d951c18f1f521abcb/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/servers/79fa0734e43e4e9d951c18f1f521abcb/mcp/ "HTTP/1.1 200 OK"
+    -> Outsider via /servers/79fa0734e43e4e9d951c18f1f521abcb/mcp: 8 tools
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Received session ID: c76e8304c4844ca0bc6fc8c8d35dbfe8
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 200 OK"
+    -> Developer via /servers/67c03357126844b0a2fca5d6dff6dc71/mcp: 8 tools
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/67c03357126844b0a2fca5d6dff6dc71/mcp/ "HTTP/1.1 403 Forbidden"
+    -> Outsider denied team server: unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/servers/285312864429431aab1db221d06a06a3/mcp/ "HTTP/1.1 403 Forbidden"
+    -> Outsider denied private server: unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> No token: failure (expected): unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> Garbage token: failure (expected): unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> Wrong secret: failure (expected): unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:07 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created user mcp-rbac-revoke-55224003@test.com (is_admin=True)
+2026-09-12T22:31:07 - tests.live_gateway.mcp.test_mcp_rbac_transport - INFO - Created API token for mcp-rbac-revoke-55224003@test.com (id=2150a170-132d-49bc-9764-a75f6a24620d)
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Received session ID: 2f63d9631b314989958d5291ffcf4860
+2026-09-12T22:31:07 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:07 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:08 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> Revoked token rejected (expected): unhandled errors in a TaskGroup (1 sub-exception)
+.    -> Cross-team isolation verified: outsider denied team/private resources
+.2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 401 Unauthorized"
+    -> Invalid token: failure (expected): unhandled errors in a TaskGroup (1 sub-exception)
+.2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Received session ID: f942aaed634c4245a3f90d1f7676e58b
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Received session ID: 24a0c10211c54ef7901fcb7baa745774
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> mcp-rbac-streamable-http-gw-get-system-time = 2026-09-12T21:31:09Z
+.2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Received session ID: 998c82aad8df495587ead5d2badb3534
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Received session ID: 78689d5ae45942a398bfa9a00e960044
+2026-09-12T22:31:09 - mcp.client.streamable_http - INFO - Negotiated protocol version: 2025-11-25
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 202 Accepted"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: GET http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: POST http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+2026-09-12T22:31:09 - httpx - INFO - HTTP Request: DELETE http://127.0.0.1:8080/mcp/ "HTTP/1.1 200 OK"
+    -> mcp-rbac-streamable-http-gw-convert-time = 2025-01-15T07:00:00-05:00
+.
+
+============================= 40 passed in 13.22s ==============================
+✅ MCP RBAC transport tests passed!

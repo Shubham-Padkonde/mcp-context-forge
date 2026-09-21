@@ -1,0 +1,97 @@
+{
+  "blueprintId": "team_mtud129w0001e1n3hy-generated-blueprint",
+  "runId": "team_mtud129w0001e1n3hy",
+  "task": "Mission: gather verified ground truth for a plan that will implement GitHub epics #5884 and #5885 in this repository. You are one of four read-only scouts. Working directory: /Users/jonpspri/Projects/mcp-context-forge/.worktrees/jps-security-moonshot (the repo worktree). Shared contract for every scout: (1) READ-ONLY toward the repo — never modify repo files; the ONLY file you write is your own report under .omo/captain/. (2) Read GitHub issues with the read tool on internal URIs, e.g. path 'issue://5886'. If that fails, fall back to: gh issue view NNNN --json title,body. (3) Do not guess: every claim in your report must come from a command you ran or a file you read. (4) Keep prose terse; short sentences, active voice (Simplified Technical English). (5) Deliverable: full report written to your assigned file under .omo/captain/, PLUS a final message of at most 40 lines: verdict counts, the drifts, and anything that blocks a fast model from executing safely.",
+  "playbookId": "generated-blueprint",
+  "playbookTitle": "Dynamic team blueprint",
+  "source": "generated",
+  "status": "draft",
+  "createdAt": 1788974184824,
+  "roles": [
+    {
+      "roleId": "scout-epic1",
+      "title": "Epic 1 reference verifier",
+      "description": "Verify every file:line reference in stories #5886-#5895 (epic #5884: canonical user_id decoupling from e-mail) against the current worktree code. Report drift, wrong claims, and missing files.",
+      "capability": "code analysis",
+      "capabilityNeeds": [
+        "code_analysis"
+      ],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [],
+      "modelFit": "accurate code reading and symbol search; mid-size context"
+    },
+    {
+      "roleId": "scout-epic2",
+      "title": "Epic 2 reference verifier",
+      "description": "Verify every file:line reference in stories #5896-#5906, #5976, #5977, #6272 (epic #5885: JWT-trust authentication mode) against the current worktree code. Report drift, wrong claims, and missing files.",
+      "capability": "code analysis",
+      "capabilityNeeds": [
+        "code_analysis"
+      ],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [],
+      "modelFit": "accurate code reading and symbol search; mid-size context"
+    },
+    {
+      "roleId": "scout-conventions",
+      "title": "Conventions and tooling scout",
+      "description": "Map test, migration, doctest, live-gateway, and Makefile conventions a fast model must follow; verify all validation-gate commands exist.",
+      "capability": "repo conventions research",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [],
+      "modelFit": "mechanical file and Makefile inspection"
+    },
+    {
+      "roleId": "scout-infra",
+      "title": "Git and GitHub infrastructure scout",
+      "description": "Report worktree/branch state, gh auth and permissions, gh-stack availability, and whether any stacked-PR pattern is already in use.",
+      "capability": "infrastructure inspection",
+      "capabilityNeeds": [],
+      "tools": [
+        "read",
+        "write",
+        "bash"
+      ],
+      "modelPreferences": [],
+      "modelFit": "mechanical git and gh inspection"
+    }
+  ],
+  "rounds": [
+    {
+      "id": "collect",
+      "type": "parallel",
+      "roles": [
+        "scout-epic1",
+        "scout-epic2",
+        "scout-conventions",
+        "scout-infra"
+      ]
+    }
+  ],
+  "policy": {
+    "rationale": "A task-specific collaboration blueprint generated for the lead captain",
+    "strategy": "The lead captain generated this collaboration plan; the extension handles dispatch, communication, observation, and recording.",
+    "evidencePolicy": "Workers should separate cited evidence, inference, confidence, and missing information.",
+    "modelPolicy": "Use configured models that are objectively available; keep soft health observations visible.",
+    "synthesisPolicy": "The lead uses worker outputs as inputs and keeps final judgment outside the extension.",
+    "progressMilestones": [
+      "collect: parallel"
+    ],
+    "stopCriteria": "All planned rounds have returned a status and the run log is persisted."
+  },
+  "outputContract": "findings",
+  "captainRationale": "A task-specific collaboration blueprint generated for the lead captain"
+}

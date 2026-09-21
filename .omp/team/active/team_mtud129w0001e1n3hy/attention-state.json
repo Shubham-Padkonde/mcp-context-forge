@@ -1,0 +1,11 @@
+{
+  "roles": {
+    "scout-conventions": {
+      "communicationAt": 1788975023882,
+      "silenceAlerted": false,
+      "pendingAckAlerted": false,
+      "cancelAlerted": false,
+      "rearmAt": 1788975012452
+    }
+  }
+}

@@ -1,0 +1,3 @@
+make test (rerun after down_revision pin fix)
+==== 23561 passed, 906 skipped, 2 xfailed, 783 warnings in 93.05s ====
+First run: 1 failed (test_migration_down_revision stale pin 12d4a0c7789c -> 5e211ec89cad), 23560 passed, 906 skipped, 2 xfailed

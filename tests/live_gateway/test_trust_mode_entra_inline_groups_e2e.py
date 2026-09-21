@@ -89,7 +89,11 @@ def entra_seeded(entra_inline_token, local_oidc_issuer):  # noqa: F811  # params
     with httpx.Client(headers=admin_headers(), timeout=30) as client:
         team_id = seed_team(client, "Entra Live Agent Team", "Live Entra inline-groups e2e")
         no_agent_team_id = seed_team(client, NO_AGENT_TEAM_NAME, "Mapped team without agent access")
-        seed_provider(client, PROVIDER_ID, info["issuer"], info["audience"])
+        # Entra v1 issuers (sts.windows.net) publish a cross-origin JWKS by
+        # design; the provider-level jwks_uri override points verification
+        # at the same-origin tenant keys instead.
+        v1_jwks = info["issuer"].rstrip("/") + "/discovery/keys" if "sts.windows.net" in info["issuer"] else None
+        seed_provider(client, PROVIDER_ID, info["issuer"], info["audience"], jwks_uri=v1_jwks)
         seed_agent(client, AGENT_NAME, team_id, local_oidc_issuer.stub_agent_url_for_gateway, "Live Entra stub-backed agent")
         mapping_id = seed_mapping(client, info["issuer"], info["tenant_id"], info["groups"][0], team_id, "developer")
     yield {

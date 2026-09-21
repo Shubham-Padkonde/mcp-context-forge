@@ -1,0 +1,6 @@
+Lane mailbox for Epic 1 reference verifier (role scout-epic1)
+Run: team_mtud129w0001e1n3hy
+Lane: scout-epic1-1788974184828
+Token: 9bf781b2-dca8-4177-8f62-874d42059fe2
+
+Captain messages appear below, newest last.
